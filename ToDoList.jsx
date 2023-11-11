@@ -9,26 +9,18 @@ import {
 
 
 
-function ToDoList() {
+function ToDoList({tasks}) {
+   
   return (
         <ScrollView style={[styles.center]}>
-            <Pressable>
-            <View style={[styles.task, styles.completed]}>
-                <Text style={styles.taskText}>Finsh WebDev Assignment</Text>
-            </View>
-            </Pressable>
-            <Pressable>
-            <View style={[styles.task]}>
-                <Text style={styles.taskText}>Finsh OOPS Assignment</Text>
-            </View>
-            </Pressable>
-            <Pressable>
-            <View style={[styles.task, styles.completed]}>
-              
-                <Text style={styles.taskText}>Study for Midterms</Text>
-            </View>
-            </Pressable>
-        </ScrollView>
+              {tasks.map((task, index) => (
+                <Pressable key={index}>
+                  <View>
+                      <Text>{task}</Text>
+                  </View>
+                </Pressable>
+              ))}
+        </ScrollView>  
   )
 }
 
@@ -47,7 +39,7 @@ const styles = StyleSheet.create({
     center: {
       
     }
-
+    
   });
   
 export default ToDoList;
