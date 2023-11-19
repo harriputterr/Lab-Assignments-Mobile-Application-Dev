@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import React from 'react';
 import {
     StyleSheet,
@@ -8,11 +9,12 @@ import {
 
 
 
-function ToDoForm() {
+function ToDoForm({addTask}) {
+  const [taskText, setTaskText] = useState('');
   return (
       <View style={styles.form}>
-        <TextInput style={styles.input} placeholder="Add a new task..." />
-        <Button title="Add" />
+        <TextInput style={styles.input} placeholder="Add a new task..." onChangeText={(text) => setTaskText(text)} value={taskText} />
+        <Button title="Add" onPress={() => addTask(taskText)} />
       </View>
   );
 }
