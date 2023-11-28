@@ -16,7 +16,7 @@ function ToDoList({tasks}) {
               {tasks.map((task, index) => (
                 <Pressable key={index}>
                   <View>
-                      <Text>{task}</Text>
+                      <Text style={styles.taskText}>{index + 1}. {task}</Text>
                   </View>
                 </Pressable>
               ))}
@@ -31,7 +31,9 @@ const styles = StyleSheet.create({
       borderColor: '#ccc',
     },
     taskText: {
-      fontSize: 16,
+      fontSize: 20,
+      margin: 12,
+
     },
     completed: {
       backgroundColor: '#e0e0e0',
@@ -39,7 +41,6 @@ const styles = StyleSheet.create({
     center: {
       
     }
-    
   });
   
 export default ToDoList;
